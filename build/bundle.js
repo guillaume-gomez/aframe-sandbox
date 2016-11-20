@@ -71,9 +71,9 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _VRScene = __webpack_require__(476);
+	var _GetStarted = __webpack_require__(476);
 
-	var _VRScene2 = _interopRequireDefault(_VRScene);
+	var _GetStarted2 = _interopRequireDefault(_GetStarted);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -82,6 +82,9 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	//import VRScene from 'VRScene.react';
+
 
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
@@ -95,7 +98,7 @@
 	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement(_VRScene2.default, null);
+	      return _react2.default.createElement(_GetStarted2.default, null);
 	    }
 	  }]);
 
@@ -98346,10 +98349,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(338);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
 	var _Camera = __webpack_require__(480);
 
 	var _Camera2 = _interopRequireDefault(_Camera);
@@ -98357,10 +98356,6 @@
 	var _Text = __webpack_require__(481);
 
 	var _Text2 = _interopRequireDefault(_Text);
-
-	var _Sky = __webpack_require__(482);
-
-	var _Sky2 = _interopRequireDefault(_Sky);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -98370,27 +98365,16 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var VRScene = function (_React$Component) {
-	  _inherits(VRScene, _React$Component);
+	var GetStarted = function (_React$Component) {
+	  _inherits(GetStarted, _React$Component);
 
-	  function VRScene(props) {
-	    _classCallCheck(this, VRScene);
+	  function GetStarted(props) {
+	    _classCallCheck(this, GetStarted);
 
-	    var _this = _possibleConstructorReturn(this, (VRScene.__proto__ || Object.getPrototypeOf(VRScene)).call(this, props));
-
-	    _this.state = { color: 'red' };
-	    return _this;
+	    return _possibleConstructorReturn(this, (GetStarted.__proto__ || Object.getPrototypeOf(GetStarted)).call(this, props));
 	  }
 
-	  _createClass(VRScene, [{
-	    key: 'changeColor',
-	    value: function changeColor() {
-	      var colors = ['red', 'orange', 'yellow', 'green', 'blue'];
-	      this.setState({
-	        color: colors[Math.floor(Math.random() * colors.length)]
-	      });
-	    }
-	  }, {
+	  _createClass(GetStarted, [{
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -98403,36 +98387,22 @@
 	            animation__click: 'property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150'
 	          })
 	        ),
-	        _react2.default.createElement(_Sky2.default, { src: 'url(https://rawgit.com/aframevr/assets/gh-pages/360-image-gallery-boilerplate/img/sechelt.jpg)' }),
-	        _react2.default.createElement(_Text2.default, {
-	          text: 'Hello World!',
-	          color: '#DADADA',
-	          position: '-1.75 1 -3' }),
-	        _react2.default.createElement(_aframeReact.Entity, { light: { type: 'ambient', color: '#888' } }),
-	        _react2.default.createElement(_aframeReact.Entity, { light: { type: 'directional', intensity: 0.5 }, position: '-1 1 0' }),
-	        _react2.default.createElement(_aframeReact.Entity, { light: { type: 'directional', intensity: 1 }, position: '1 1 0' }),
 	        _react2.default.createElement(
 	          _aframeReact.Entity,
-	          {
-	            animation__rot: { property: 'rotation', dur: 2000, loop: true, to: '360 360 360' },
-	            animation__sca: { property: 'scale', dir: 'alternate', dur: 100, loop: true, to: '1.1 1.1 1.1' },
-	            geometry: 'primitive: box',
-	            material: { color: this.state.color, opacity: 0.6 },
-	            position: '0 -0.5 -3',
-	            onClick: this.changeColor.bind(this) },
-	          _react2.default.createElement(_aframeReact.Entity, {
-	            animation__scale: { property: 'scale', dir: 'alternate', dur: 100, loop: true, to: '2 2 2' },
-	            geometry: 'primitive: box; depth: 0.2; height: 0.2; width: 0.2',
-	            material: { color: '#24CAFF' } })
-	        )
+	          { geometry: { primitive: 'cylinder' }, material: 'color: #6173F4', rotation: '0 0 45', scale: '1 0.5 1', position: [0, 0, -3] },
+	          _react2.default.createElement('a-animation', { attribute: 'rotation', repeat: 'indefinite', to: '0 360 0' })
+	        ),
+	        _react2.default.createElement('a-sky', { color: '#73F7DD' }),
+	        _react2.default.createElement('a-light', { type: 'spot', color: '#333', position: '-20 0 0', 'look-at': 'a-cylinder' }),
+	        _react2.default.createElement('a-light', { type: 'point', color: '#AAA', position: '0 5 0' })
 	      );
 	    }
 	  }]);
 
-	  return VRScene;
+	  return GetStarted;
 	}(_react2.default.Component);
 
-	exports.default = VRScene;
+	exports.default = GetStarted;
 
 /***/ },
 /* 477 */
@@ -98854,31 +98824,6 @@
 	  return _react2.default.createElement(_aframeReact.Entity, _extends({
 	    text: { text: props.text }, material: { color: props.color }
 	  }, extraProps));
-	};
-
-/***/ },
-/* 482 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _aframeReact = __webpack_require__(477);
-
-	var _react = __webpack_require__(306);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = function (props) {
-	  return _react2.default.createElement(_aframeReact.Entity, {
-	    geometry: { primitive: 'sphere', radius: 100 },
-	    material: { shader: 'flat', src: props.src },
-	    scale: '1 1 -1' });
 	};
 
 /***/ }
