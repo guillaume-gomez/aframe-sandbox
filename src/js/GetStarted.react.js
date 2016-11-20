@@ -22,7 +22,9 @@ class GetStarted extends React.Component {
 >
           </a-cursor>
         </Camera>
-        <Entity geometry={{primitive: 'box'}} material="color: #6173F4"  rotation="0 0 45" scale="1 0.5 1" position={[0, 0, -3]}/>
+        <Entity geometry={{primitive: 'box'}} material="color: #6173F4"  rotation="0 0 45" scale="1 0.5 1" position={[0, 0, -3]} src="texture.png">
+          <a-animation attribute="rotation" repeat="indefinite" to="0 360 0"></a-animation>
+        </Entity>
       </Scene>
     );
   }
