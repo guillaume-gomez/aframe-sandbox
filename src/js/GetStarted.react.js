@@ -22,9 +22,12 @@ class GetStarted extends React.Component {
 >
           </a-cursor>
         </Camera>
-        <Entity geometry={{primitive: 'box'}} material="color: #6173F4"  rotation="0 0 45" scale="1 0.5 1" position={[0, 0, -3]} src="texture.png">
+        <Entity geometry={{primitive: 'cylinder'}} material="color: #6173F4"  rotation="0 0 45" scale="1 0.5 1" position={[0, 0, -3]} src="texture.png">
           <a-animation attribute="rotation" repeat="indefinite" to="0 360 0"></a-animation>
         </Entity>
+        
+        <a-light type="spot" color="#333" position="-20 0 0" look-at="a-box"></a-light>
+        <a-light type="point" color="#AAA" position="0 5 0"></a-light>
       </Scene>
     );
   }
